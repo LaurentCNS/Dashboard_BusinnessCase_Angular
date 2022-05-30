@@ -1,0 +1,26 @@
+<div class="body">
+    <div class="container d-flex justify-content-center login">
+        <div class="col-lg-6 col-md-8 col-sm-12 col 12 ">
+            <div class="card py-3 px-3">
+                <div class="card-body">
+                    <form (ngSubmit)="connectUser()" #form="ngForm">
+                        <div class="mb-3">
+                            <label for="username" class="form-label"><strong>Nom d'utilisateur :</strong></label>
+                            <input type="text" class="form-control" id="username" name="username" maxlength="30"
+                                minlength="1" #user="ngModel" required [(ngModel)]="userForm.username">
+                            <div class="form-text">Nom d’utilisateur : LaTerreEstPlate / Password : Issou2021</div>
+                        </div>
+                        <div class="">
+                            <label for="password" class="form-label"><strong>Mot de passe :</strong></label>
+                            <input type="text" class="form-control" id="password" name="password" maxlength="60"
+                                minlength="1" #password="ngModel" required [(ngModel)]="userForm.password">
+                        </div>
+                        <div class="d-flex justify-content-center mt-5 mb-2">
+                            <button type="submit" [disabled]="!form.valid" class="btn btn-primary ">CONNEXION</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
