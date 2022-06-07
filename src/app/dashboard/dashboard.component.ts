@@ -30,13 +30,20 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnInit(): void {
-    
+    this.stats.getStats().subscribe(data => {
+      this.statsReturn = data;    
+      this.average = data.montantVenteTotal/data.nbCommand  
+    });
   }
 
+
+  
+
+  print() {
+    window.print();
+  }
 
   logOut() : void{
-   this.auth.doLogout();
-  }
-
-
+    this.auth.doLogout();
+   }
 }

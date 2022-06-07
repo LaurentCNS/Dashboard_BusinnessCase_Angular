@@ -1,9 +1,62 @@
 .menuLeft{
-    height: 100vh;
+    width: 300px;
     background-color: #1A3762;
     
 }
 
 .header{
     color: black;
+}
+
+.logo{
+    width: 180px;
+    margin-bottom: 100px;
+}
+
+.menuNav{
+    color: white;
+    font-size: 20px;
+    list-style: none;
+}
+
+.deco{
+    margin-top: 300px;
+}
+
+li{
+    list-style: none;
+    cursor: pointer;
+}
+
+.title{
+    color: black;
+}
+
+.dateBox{
+    width: 300px;
+    height: 60px;
+    border: 1px solid black;
+    background-color: #1A3762;
+}
+
+.dateBoxStyle{
+    padding-top: 13px;
+    color: white;
+}
+
+.print{
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-left: 50px;
+}
+
+label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input,
+label {
+    margin: .4rem 0;
 }
