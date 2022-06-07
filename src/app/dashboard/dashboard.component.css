@@ -1,6 +1,9 @@
-.menuLeft{
+/* css de la nav à copier */
+
+app-nav{
     width: 300px;
     background-color: #1A3762;
+    margin-right: 30px;
     
 }
 
@@ -8,25 +11,7 @@
     color: black;
 }
 
-.logo{
-    width: 180px;
-    margin-bottom: 100px;
-}
-
-.menuNav{
-    color: white;
-    font-size: 20px;
-    list-style: none;
-}
-
-.deco{
-    margin-top: 300px;
-}
-
-li{
-    list-style: none;
-    cursor: pointer;
-}
+/* fin du css de la nav */
 
 .title{
     color: black;

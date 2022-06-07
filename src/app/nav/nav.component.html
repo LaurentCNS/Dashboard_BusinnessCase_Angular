@@ -1,1 +1,19 @@
-<p>nav works!</p>
+<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0  min-vh-100 menuLeft">
+    <div class="d-flex flex-column align-items-center pt-2">
+      <img class="logo" src="../../assets/logomedium.png" alt="logo animalerie">
+    </div>
+    <div class="d-flex justify-content-start menuNav">
+      <ul>
+        <li class="mb-4">Statistiques</li>
+        <li class="mb-4">Gestion produits</li>
+        <li class="mb-4">Gestion catégories</li>
+        <li class="mb-4">Gestion Commandes</li>
+        <li>Fiche clients</li>
+      </ul>
+    </div>
+    <div class="d-flex justify-content-start menuNav deco">
+      <ul>
+        <li (click)="logOut()" class="mb-4"> Se déconnecter</li>
+      </ul>
+    </div>
+  </div>
