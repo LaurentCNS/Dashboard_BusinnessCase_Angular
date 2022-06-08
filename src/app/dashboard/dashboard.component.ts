@@ -17,6 +17,9 @@ import { BrowserModule } from '@angular/platform-browser';
 })
 export class DashboardComponent implements OnInit {
 
+
+  dateStart ?: Date;
+  dateEnd ?: Date;
   statsReturn : Stats = new Stats
   graphReturn : Graph[] = []
   average ?: number;
@@ -36,7 +39,15 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-
+  refreshData(){
+    this.stats.getStats(this.dateStart, this.dateEnd).subscribe(data => {
+      this.statsReturn = data;
+      this.average = data.montantVenteTotal/data.nbCommand;
+      if(!this.average){
+        this.average = 0;
+      }
+      console.log(this.average);
+  }); }
   
 
   print() {

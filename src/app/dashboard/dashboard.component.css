@@ -60,3 +60,17 @@ label {
     margin-right: 115px;
 }
 
+.buttonMarg{
+    margin-right: 80px;
+}
+
+.btnSubmitStyle{
+    width: 100px;
+    background-color: #2c5797;
+    color: white;
+    border: 1px solid #2c5797;
+}
+
+.btnSubmitStyle:hover{
+    background-color: #1A3762;
+}

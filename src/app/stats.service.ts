@@ -14,8 +14,19 @@ export class StatsService {
 
 
 
-  getStats() : Observable<Stats>{
-    return this.httpClient.get<Stats>(this.apiUrl + `stats`)
+  getStats(dateStart?:Date, dateEnd?:Date) : Observable<Stats>{
+    if(dateStart && dateEnd){
+      return this.httpClient.get<Stats>(this.apiUrl + `stats?dateStart=` +
+      dateStart?.toString()+`&dateEnd=`+dateEnd?.toString());
+    }else if(dateStart){
+      return this.httpClient.get<Stats>(this.apiUrl + `stats?dateStart=` +
+      dateStart?.toString());
+    }else if(dateEnd){
+      return this.httpClient.get<Stats>(this.apiUrl + `stats?dateStart=`+`&dateEnd=`+dateEnd?.toString());
+    }else{
+      return this.httpClient.get<Stats>(this.apiUrl + `stats`);
+    }
+    
   }
 
 }

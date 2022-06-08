@@ -16,6 +16,8 @@ import { NavComponent } from './nav/nav.component';
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +35,8 @@ import { NavComponent } from './nav/nav.component';
     BrowserAnimationsModule,
     ToastrModule.forRoot({timeOut: 5000}),
     NgxChartsModule,
+
+
 
     
   ],
