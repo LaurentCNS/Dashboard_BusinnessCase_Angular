@@ -6,7 +6,7 @@
     <!--Contenu de droite-->
     <div class="col py-3">
       <div class="col-lg-12">
-        <div class="card text-white bg-light mb-5 me-3" style="max-width: 100%;">
+        <div class="card text-white bg-light mb-5 me-3 mediaPrintdisabled" style="max-width: 100%;">
           <div class="col-lg-12">
             <div class="row d-flex justify-content-between">
               <div class="col-lg-5 ms-5 mt-4 mb-4 title">
@@ -22,64 +22,76 @@
 
 
 
-        <div class="col-lg-12">
+        <div class="col-lg-12 mediaPrintdisabled">
+
+
           <div class="row d-flex justify-content-between">
-            <div class="col-lg-6 mb-5 title">
-              <p (click)="print()" class="print">IMPRIMER LE RAPPORT CI-DESSOUS :</p>
+
+
+
+            <div (click)="print()" class="col-lg-6 mb-5 title d-flex printBox">
+              <img class="logoPrint printFa" src="../../assets/icon/print-solid.svg" alt="logo">
+              <p  class="print mt-3">IMPRIMER LE RAPPORT CI-DESSOUS :</p>
             </div>
+
+
+
             <div class="col-lg-6 text-end pe-5  dateBox">
               <h4 class="dateBoxStyle">Choix de la période</h4>
             </div>
+
+
+
           </div>
         </div>
 
         <div class="col-lg-12 ">
-          <div class="row d-flex justify-content-end datePickerMargin">   
+          <div class="row d-flex justify-content-end datePickerMargin">
             <form (ngSubmit)="refreshData()">
-              <div class="row d-flex justify-content-end">         
-              <div class=" col-lg-2 datePicker">
-                <label class="fw-bold" for="start">DATE DEBUT</label>
-                <input type="date" id="start" name="dateStart" value="2022-01-01" [(ngModel)]="dateStart">
+              <div class="row d-flex justify-content-end datePrint">
+                <div class=" col-lg-2 datePicker">
+                  <label class="fw-bold" for="start">DATE DEBUT</label>
+                  <input type="date" id="start" name="dateStart" value="2022-01-01" [(ngModel)]="dateStart">
+                </div>
+                <div class="col-lg-2 datePicker ms-3">
+                  <label class="fw-bold" for="end">DATE FIN</label>
+                  <input type="date" id="end" name="dateEnd" value="2022-12-31" [(ngModel)]="dateEnd">
+                </div>
               </div>
-              <div class="col-lg-2 datePicker ms-3">
-                <label class="fw-bold" for="end">DATE FIN</label>
-                <input type="date" id="end" name="dateEnd" value="2022-12-31" [(ngModel)]="dateEnd">
-              </div>  
-            </div>
-            <div class="row d-flex justify-content-end">
-              <div class="col-lg-1 col-md-5 mt-3 buttonMarg">
-              <input class="btnSubmitStyle" type="submit">
-            </div>
-            </div>
-            </form>         
+              <div class="row d-flex justify-content-end">
+                <div class="col-lg-1 col-md-5 mt-3 buttonMarg">
+                  <input class="btnSubmitStyle mediaPrintdisabled" type="submit">
+                </div>
+              </div>
+            </form>
           </div>
         </div>
 
-        
+
         <div class="col-lg-12 mt-5">
           <div class="row d-flex justify-content-start ms-5">
-            <div class="col-lg-6 col-md-6 card text-white bg-success mb-3 me-5" style="max-width: 20rem; height: 7rem;">
+            <div class="col-lg-6 col-md-6 card text-white bg-success mb-3 me-5 cardPrint" style="max-width: 20rem; ">
               <div class="card-body">
-                <h5 class="card-title">Montant total des ventes</h5>
-                <h5 class="card-text mt-4">{{statsReturn.montantVenteTotal | number : '.2-2'}}€</h5>
+                <h5 class="card-title fontPrint">Montant total des ventes</h5>
+                <h5 class="card-text mt-4 fontPrint">{{statsReturn.montantVenteTotal | number : '.2-2'}}€</h5>
               </div>
             </div>
-            <div class="col-lg-6 col-md-6 card text-white bg-primary mb-3 me-5" style="max-width: 20rem;">
+            <div class="col-lg-6 col-md-6 card text-white bg-primary mb-3 me-5 cardPrint" style="max-width: 20rem;">
               <div class="card-body">
-                <h5 class="card-title">Nombre de commandes</h5>
-                <h5 class="card-text mt-4">{{statsReturn.nbCommand}}</h5>
+                <h5 class="card-title fontPrint">Nombre de commandes</h5>
+                <h5 class="card-text mt-4 fontPrint">{{statsReturn.nbCommand}}</h5>
               </div>
             </div>
-            <div class="col-lg-6 col-md-6 card text-white bg-warning mb-3 me-5" style="max-width: 20rem;">
+            <div class="col-lg-6 col-md-6 card text-white bg-warning mb-3 me-5 cardPrint" style="max-width: 20rem;">
               <div class="card-body">
-                <h5 class="card-title">Nombre de paniers</h5>
-                <h5 class="card-text mt-4">{{statsReturn.nbPanier}}</h5>
+                <h5 class="card-title fontPrint">Nombre de paniers</h5>
+                <h5 class="card-text mt-4 fontPrint">{{statsReturn.nbPanier}}</h5>
               </div>
             </div>
-            <div class="col-lg-6 col-md-6 card text-white cardColor mb-3 me-5" style="max-width: 20rem;">
+            <div class="col-lg-6 col-md-6 card text-white cardColor mb-3 me-5 cardPrint" style="max-width: 20rem;">
               <div class="card-body">
-                <h5 class="card-title">Prix panier moyen</h5>
-                <h5 class="card-text mt-4">{{average | number : '.2-2'}}€</h5>
+                <h5 class="card-title fontPrint">Prix panier moyen</h5>
+                <h5 class="card-text mt-4 fontPrint">{{average | number : '.2-2'}}€</h5>
               </div>
             </div>
           </div>

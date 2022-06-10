@@ -30,11 +30,14 @@ app-nav{
     color: white;
 }
 
+.printBox{
+    cursor: pointer;
+}
+
 .print{
     font-weight: bold;
-    cursor: pointer;
     text-decoration: underline;
-    margin-left: 50px;
+    margin-left: 15px;
 }
 
 label {
@@ -73,4 +76,39 @@ label {
 
 .btnSubmitStyle:hover{
     background-color: #1A3762;
+}
+
+.logoPrint{
+    width: 30px;   
+}
+
+@media print {
+    app-nav{
+        display: none;        
+    }
+    .mediaPrintdisabled{
+        display: none;
+    }
+    .datePrint{
+        width: 300px;
+        display:flex;
+        justify-content: start;
+    }
+    .cardPrint{
+        width: 198px;
+        height: 100px;       
+    }
+    .fontPrint{
+        font-size: 12px;
+        color: rgb(0, 0, 0);
+    }
+
+  }
+
+.iconCard{
+    background-color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 10px;
 }

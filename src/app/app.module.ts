@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NavComponent } from './nav/nav.component';
+import { NgChartsModule } from 'ng2-charts';
 
 
 
@@ -35,6 +36,7 @@ import { NavComponent } from './nav/nav.component';
     BrowserAnimationsModule,
     ToastrModule.forRoot({timeOut: 5000}),
     NgxChartsModule,
+    NgChartsModule,
 
 
 
