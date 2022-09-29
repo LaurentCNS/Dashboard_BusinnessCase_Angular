@@ -1,13 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
-import { Graph } from '../class/graph';
-import { Stats } from '../class/stats';
-import { GraphService } from '../graph.service';
-import { StatsService } from '../stats.service';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { BrowserModule } from '@angular/platform-browser';
-
-
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from '../auth.service';
+import {Graph} from '../class/graph';
+import {AllStats} from '../class/stats';
+import {GraphService} from '../graph.service';
+import {StatsService} from '../stats.service';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
+import {BrowserModule} from '@angular/platform-browser';
+import {forkJoin} from "rxjs";
 
 
 @Component({
@@ -20,41 +19,51 @@ export class DashboardComponent implements OnInit {
 
   dateStart ?: Date;
   dateEnd ?: Date;
-  statsReturn : Stats = new Stats
-  graphReturn : Graph[] = []
-  average ?: number;
+  allStats: AllStats = new AllStats;
+  graphReturn: Graph[] = []
+  isLoaded : boolean = false;
 
-  
-  
-  constructor(private auth : AuthService,
-              private stats : StatsService,
-              ) { }
 
+  constructor(private auth: AuthService,
+              private stats: StatsService,
+  ) {
+  }
 
 
   ngOnInit(): void {
-    this.stats.getStats().subscribe(data => {
-      this.statsReturn = data;    
-      this.average = data.montantVenteTotal/data.nbCommand  
+    forkJoin([
+      this.stats.getMontantTotalVentes(),
+      this.stats.getNbCommande(),
+      this.stats.getNbPanier(),
+      this.stats.getPrixPanierMoyen()]).subscribe(([montantTotalVentes, nbCommande, nbPanier, prixPanierMoyen]) => {
+      this.allStats.nbTotalVentes = montantTotalVentes;
+      this.allStats.nbCommande = nbCommande;
+      this.allStats.nbPanier = nbPanier;
+      this.allStats.prixPanierMoyen = prixPanierMoyen;
+      this.isLoaded = true;
     });
+
   }
 
-  refreshData(){
-    this.stats.getStats(this.dateStart, this.dateEnd).subscribe(data => {
-      this.statsReturn = data;
-      this.average = data.montantVenteTotal/data.nbCommand;
-      if(!this.average){
-        this.average = 0;
-      }
-      console.log(this.average);
-  }); }
-  
+  refreshData() {
+    forkJoin([
+      this.stats.getMontantTotalVentes(this.dateStart, this.dateEnd),
+      this.stats.getNbCommande(this.dateStart, this.dateEnd),
+      this.stats.getNbPanier(this.dateStart, this.dateEnd),
+      this.stats.getPrixPanierMoyen(this.dateStart, this.dateEnd)]).subscribe(([montantTotalVentes, nbCommande, nbPanier, prixPanierMoyen]) => {
+      this.allStats.nbTotalVentes = montantTotalVentes;
+      this.allStats.nbCommande = nbCommande;
+      this.allStats.nbPanier = nbPanier;
+      this.allStats.prixPanierMoyen = prixPanierMoyen;
+      this.isLoaded = true;
+    });
+  }
 
   print() {
     window.print();
   }
 
-  logOut() : void{
+  logOut(): void {
     this.auth.doLogout();
-   }
+  }
 }

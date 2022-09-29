@@ -4,8 +4,11 @@
 
 export const environment = {
   production: false,
-  api : 'http://3.94.87.10/apibusinesscase/public/'
+  api : 'http://127.0.0.1:8000/api/'
 };
+
+// api de Aurelien
+// api : 'http://3.94.87.10/apibusinesscase/public/'
 
 /*
  * For easier debugging in development mode, you can import the following file

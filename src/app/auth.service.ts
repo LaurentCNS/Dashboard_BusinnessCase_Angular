@@ -17,9 +17,11 @@ export class AuthService {
 
 
   signIn(user: User) {
+    localStorage.removeItem('access_token');
     return this.httpClient
       .post<any>(this.apiUrl + `authentication_token`, user)
       .subscribe((res: any) => {
+        console.log(res.token);
         localStorage.setItem('access_token', res.token);
         this.router.navigate(['/dashboard'])
       });
@@ -44,5 +46,5 @@ export class AuthService {
     return authToken !== null ? true : false;
   }
 
- 
+
 }

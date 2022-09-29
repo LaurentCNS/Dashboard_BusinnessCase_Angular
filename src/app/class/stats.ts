@@ -1,5 +1,6 @@
-export class Stats {
-    "montantVenteTotal" : number;
-    "nbCommand" : number
+export class AllStats {
+    "nbTotalVentes" : number;
+    "nbCommande" : number;
     "nbPanier" : number;
+    "prixPanierMoyen" : number;
 }

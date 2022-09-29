@@ -11,7 +11,7 @@ import { User } from '../class/user';
 })
 export class LoginComponent implements OnInit {
 
-  userForm = new User();
+  userForm = {username: '', password: ''};
 
   constructor(private authService : AuthService,
               private router : Router,
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 connectUser(): void{
   this.authService.signIn(this.userForm)
   this.toastr.success('Bonjour Mr Capard, content de vous revoir!')
-   
+
 }
 
 }
