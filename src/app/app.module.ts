@@ -36,6 +36,7 @@ import { NgChartsModule } from 'ng2-charts';
     BrowserAnimationsModule,
     ToastrModule.forRoot({timeOut: 5000}),
     NgxChartsModule,
+    NgChartsModule,
    
 
 

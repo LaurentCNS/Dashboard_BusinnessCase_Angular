@@ -46,5 +46,21 @@ export class AuthService {
     return authToken !== null ? true : false;
   }
 
+ // fonction pour vérifier si l'utilisateur est admin
+  isAdmin() {
+    let token = localStorage.getItem('access_token');
+    // si le token est null, on retourne false
+    if (token == null) {
+      return false;
+    }
+    let payload = token.split('.')[1];
+    let user = JSON.parse(atob(payload));
+    if (user.roles[0] === 'ROLE_ADMIN') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 
 }

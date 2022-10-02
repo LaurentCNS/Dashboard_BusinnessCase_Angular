@@ -1,41 +1,45 @@
-.menuLeft{
-    width: 300px;
-    background-color: #1A3762;
-    
+.menuLeft {
+  width: 300px;
+  background-color: #1A3762;
 }
 
-.logo{
-    width: 180px;
-    margin-bottom: 100px;
+.logo {
+  width: 180px;
+  margin-bottom: 100px;
 }
 
-.menuNav{
-    color: white;
-    font-size: 20px;
-    list-style: none;
+.menuNav {
+  color: white;
+  font-size: 20px;
+  list-style: none;
+  position: absolute;
+  top: 10px;
+  margin-left: 43px;
+  cursor: pointer;
 }
 
-.deco{
-    margin-top: 300px;
+.deco {
+  margin-top: 300px;
 }
 
-li{
-    list-style: none;
-    cursor: pointer;
+li {
+  list-style: none;
 }
 
-.boxDeco{
-    border: 1px solid rgb(255, 255, 255);
-    width: 180px;
-    height: 40px;
-    padding-top: 3px;
+.boxDeco {
+  border: 1px solid rgb(255, 255, 255);
+  width: 180px;
+  height: 40px;
+  padding-top: 3px;
 }
 
-.boxDeco:hover{
-    background-color: #2c60ad;
+.boxDeco:hover {
+  background-color: #2c60ad;
 }
 
-.boxDeco:hover{
-    background-color: #2c60ad;
-    color: rgb(207, 206, 204);
+.boxDeco:hover {
+  background-color: #2c60ad;
+  color: rgb(207, 206, 204);
 }
+
+

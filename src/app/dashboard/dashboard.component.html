@@ -2,7 +2,7 @@
 <div class="container-fluid">
   <div class="row flex-nowrap">
     <!--Menu lateral gauche-->
-    <app-nav></app-nav>
+    <app-nav class="p-0"></app-nav>
     <!--Contenu de droite-->
     <div class="col py-3">
       <div class="col-lg-12">
@@ -10,7 +10,7 @@
           <div class="col-lg-12">
             <div class="row d-flex justify-content-between">
               <div class="col-lg-5 ms-5 mt-4 mb-4 title">
-                <h5 class="fw-bold">DASHBOARD DE LA NIMES'ALERIE</h5>
+                <h5 class="fw-bold">STATISTIQUES DE LA NIMES'ALERIE</h5>
               </div>
               <div class="col-lg-3 mt-4 mb-4 header ms-5">
                 <h5 class="fw-bold">GESTION ADMINISTRATEUR</h5>
@@ -79,10 +79,39 @@
               </div>
             </div>
           </div>
+          <div class="col-6 mt-3">
+            <div class="spectre-line-chart chart-print">
+              <ngx-charts-pie-grid
+                [results]="ChartsData1"
+                [view]="[1000, 250]"
+                [scheme]="'ocean'">
+              </ngx-charts-pie-grid>
+              <ngx-charts-pie-grid
+                [results]="ChartsData2"
+                [view]="[1000, 250]"
+                [scheme]="'picnic'">
+              </ngx-charts-pie-grid>
+              <ngx-charts-bar-vertical
+                [results]="ChartsData3"
+                [scheme]="'picnic'"
+                [view]="[1000, 250]"
+                [xAxis]="true"
+                [yAxis]="true"
+                [legend]="true"
+                [legendTitle]="'Meilleurs produits'"
+                [showXAxisLabel]="true"
+                [showYAxisLabel]="true"
+                [roundDomains]="true"
+                [gradient]="true"
+                [showGridLines]="true"
+                [animations]="true"
+                [showDataLabel]="true">
+              </ngx-charts-bar-vertical>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
     <ng-template #loading>
       <p>Chargement</p>
     </ng-template>
@@ -90,6 +119,3 @@
     <!--Fin du Container de la page-->
   </div>
 </div>
-
-
-<!--todo 23min buisness case angular + graph-->

@@ -16,12 +16,13 @@ export class AuthGuardGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(this.auth.isLoggedIn !== true ){
+    // si l'utilisateur est connecté et a les valeurs d'admin, on retourne true
+    if(this.auth.isLoggedIn !== true && this.auth.isAdmin() !== true){
       alert(`Vous n'avez pas l'autorisation!`)
       this.router.navigate(['/']);
     }
       return true;
-       
+
   }
-  
+
 }

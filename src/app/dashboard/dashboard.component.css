@@ -1,114 +1,132 @@
 /* css de la nav à copier */
 
-app-nav{
-    width: 300px;
-    background-color: #1A3762;
-    margin-right: 30px;
-    
+app-nav {
+  width: 300px;
+  background-color: #1A3762;
+  margin-right: 30px;
+
 }
 
-.header{
-    color: black;
+.header {
+  color: black;
 }
 
 /* fin du css de la nav */
 
-.title{
-    color: black;
+.title {
+  color: black;
 }
 
-.dateBox{
-    width: 300px;
-    height: 60px;
-    border: 1px solid black;
-    background-color: #1A3762;
-    margin-right: 115px;
+.dateBox {
+  width: 300px;
+  height: 60px;
+  border: 1px solid black;
+  background-color: #1A3762;
+  margin-right: 115px;
 }
 
-.dateBoxStyle{
-    padding-top: 13px;
-    color: white;
+.dateBoxStyle {
+  padding-top: 13px;
+  color: white;
 }
 
-.printBox{
-    cursor: pointer;
+.printBox {
+  cursor: pointer;
 }
 
-.print{
-    font-weight: bold;
-    text-decoration: underline;
-    margin-left: 15px;
+.print {
+  font-weight: bold;
+  text-decoration: underline;
+  margin-left: 15px;
 }
 
 label {
-    display: block;
-    font: 1rem 'Fira Sans', sans-serif;
+  display: block;
+  font: 1rem 'Fira Sans', sans-serif;
 }
 
 input,
 label {
-    margin: .4rem 0;
+  margin: .4rem 0;
 }
 
-.datePicker{
-    width: 141px;
-    
+.datePicker {
+  width: 141px;
+
 }
 
-.cardColor{
-    background-color: #7A4CC6;
+.cardColor {
+  background-color: #7A4CC6;
 }
 
-.datePickerMargin{
-    margin-right: 115px;
+.datePickerMargin {
+  margin-right: 115px;
 }
 
-.buttonMarg{
-    margin-right: 80px;
+.buttonMarg {
+  margin-right: 80px;
 }
 
-.btnSubmitStyle{
-    width: 100px;
-    background-color: #2c5797;
-    color: white;
-    border: 1px solid #2c5797;
+.btnSubmitStyle {
+  width: 100px;
+  background-color: #2c5797;
+  color: white;
+  border: 1px solid #2c5797;
 }
 
-.btnSubmitStyle:hover{
-    background-color: #1A3762;
+.btnSubmitStyle:hover {
+  background-color: #1A3762;
 }
 
-.logoPrint{
-    width: 30px;   
+.logoPrint {
+  width: 30px;
+}
+
+.spectre-line-chart {
+  margin-left: 35%;
 }
 
 @media print {
-    app-nav{
-        display: none;        
-    }
-    .mediaPrintdisabled{
-        display: none;
-    }
-    .datePrint{
-        width: 300px;
-        display:flex;
-        justify-content: start;
-    }
-    .cardPrint{
-        width: 198px;
-        height: 100px;       
-    }
-    .fontPrint{
-        font-size: 12px;
-        color: rgb(0, 0, 0);
-    }
-
+  app-nav {
+    display: none;
   }
 
-.iconCard{
-    background-color: white;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 10px;
+  .mediaPrintdisabled {
+    display: none;
+  }
+
+  .datePrint {
+    width: 300px;
+    display: flex;
+    justify-content: start;
+  }
+
+  .cardPrint {
+    width: 198px;
+    height: 100px;
+  }
+
+  .fontPrint {
+    font-size: 12px;
+    color: rgb(0, 0, 0);
+  }
+
+  .chart-print {
+    margin-left: 0;
+  }
 }
+
+.iconCard {
+  background-color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 10px;
+}
+
+.cardCharts{
+  width: 100%;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid #1A3762;
+}
+
