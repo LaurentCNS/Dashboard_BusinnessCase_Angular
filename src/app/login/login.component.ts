@@ -15,15 +15,13 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService : AuthService,
               private router : Router,
-              private toastr : ToastrService) { }
+              ) { }
 
   ngOnInit(): void {
   }
 
 connectUser(): void{
   this.authService.signIn(this.userForm)
-  this.toastr.success('Bonjour Mr Capard, content de vous revoir!')
-
-}
+  }
 
 }

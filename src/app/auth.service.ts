@@ -1,9 +1,11 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { User } from './class/user';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Router} from '@angular/router';
+import {Observable} from 'rxjs';
+import {environment} from 'src/environments/environment';
+import {User} from './class/user';
+import {Produits} from "./class/stats";
+import {UserModel} from "./class/user.model";
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +13,11 @@ import { User } from './class/user';
 export class AuthService {
   apiUrl = environment.api;
   headers = new HttpHeaders().set('Content-Type', 'application/json');
+  user !: UserModel;
 
   constructor(private httpClient: HttpClient,
-    private router: Router) { }
+              private router: Router) {
+  }
 
 
   signIn(user: User) {
@@ -21,9 +25,9 @@ export class AuthService {
     return this.httpClient
       .post<any>(this.apiUrl + `authentication_token`, user)
       .subscribe((res: any) => {
-        console.log(res.token);
         localStorage.setItem('access_token', res.token);
         this.router.navigate(['/dashboard'])
+        this.user = this.getUser(res.token);
       });
   }
 
@@ -46,21 +50,22 @@ export class AuthService {
     return authToken !== null ? true : false;
   }
 
- // fonction pour vérifier si l'utilisateur est admin
-  isAdmin() {
-    let token = localStorage.getItem('access_token');
-    // si le token est null, on retourne false
-    if (token == null) {
-      return false;
+  get isAdmin(): boolean {
+    let authToken = localStorage.getItem('access_token');
+    if (authToken !== null) {
+      this.user = this.getUser(authToken);
+      // parcourir les roles
+      for (let role of this.user.roles) {
+        if (role === "ROLE_ADMIN") {
+          return true;
+        }
+      }
     }
-    let payload = token.split('.')[1];
-    let user = JSON.parse(atob(payload));
-    if (user.roles[0] === 'ROLE_ADMIN') {
-      return true;
-    } else {
-      return false;
-    }
+    return false;
   }
 
+  getUser(token: string): UserModel {
+    return JSON.parse(atob(token.split('.')[1])) as UserModel;
+  }
 
 }

@@ -4,6 +4,7 @@ import {Graph} from '../class/graph';
 import {AllStats, Produits} from '../class/stats';
 import {StatsService} from '../stats.service';
 import {forkJoin} from "rxjs";
+import {ToastrService} from "ngx-toastr";
 
 
 @Component({
@@ -38,10 +39,12 @@ export class DashboardComponent implements OnInit {
 
   constructor(private auth: AuthService,
               private stats: StatsService,
+              private toastr : ToastrService
   ) {
   }
 
   ngOnInit(): void {
+    this.toastr.success('Bonjour Mr Capard, content de vous revoir!')
     forkJoin([
       this.stats.getMontantTotalVentes(),
       this.stats.getNbCommande(),
